@@ -1,0 +1,21 @@
+<div class="component">
+
+  <div class="per-page-label" translate>Items per page</div>
+
+  <div class="btn-group" dropdown>
+
+    <button dropdownToggle type="button" class="btn btn-default dropdown-toggle">
+      {{currentOption}}
+    </button>
+
+    <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+
+      <li role="menuitem" *ngFor="let option of options" (click)="change(option)">
+        <a class="dropdown-item">{{option}}</a>
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
