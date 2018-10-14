@@ -9,21 +9,25 @@
       <form class="login-form" action="index.html">
         <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>SIGN UP</h3>
         <div class="form-group">
-          <label class="control-label">Full Name</label>
-          <input class="form-control" type="text" placeholder="Namr" autofocus>
+          <label class="control-label">First Name*</label>
+          <input class="form-control" [(ngModel)]="user.firstName" name="firstName" type="text" placeholder="First Name" autofocus>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Last Name*</label>
+          <input class="form-control" [(ngModel)]="user.lastName" name="lastName" type="text" placeholder="Last Name" autofocus>
         </div>
         <div class="form-group">
           <label class="control-label">Email</label>
-          <input class="form-control" type="email" placeholder="Email" autofocus>
+          <input class="form-control" [(ngModel)]="user.email" name="email" type="email" placeholder="Email" autofocus>
         </div>
         <div class="form-group">
-          <label class="control-label">PASSWORD</label>
-          <input class="form-control" type="password" placeholder="Password">
+          <label class="control-label">Password</label>
+          <input class="form-control" [(ngModel)]="user.password" name="password" type="password" placeholder="Password">
         </div>
         <div class="form-group btn-container">
-          <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN UP</button>
+          <button class="btn btn-primary btn-block" (click)="createUser()"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN UP</button>
         </div>
-      </form>
+      </form>
     </div>
   </section>
   

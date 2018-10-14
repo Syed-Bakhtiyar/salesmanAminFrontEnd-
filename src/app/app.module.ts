@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Http, HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
@@ -10,6 +12,8 @@ import { routes } from './routes';
 import { UserComponent } from './user/user.component';
 import { PerPageComponent } from './per-page/per-page.component';
 import { EditableFieldComponent } from './editable-field/editable-field.component';
+import { UserService } from './shared/services/user.service';
+import { LocalStorageService } from './shared/services/local.storage.service';
 
 @NgModule({
   declarations: [
@@ -23,9 +27,14 @@ import { EditableFieldComponent } from './editable-field/editable-field.componen
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    UserService,
+    LocalStorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
