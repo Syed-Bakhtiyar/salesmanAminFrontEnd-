@@ -1,0 +1,11 @@
+<div class="login-box signup-box">
+  <form class="login-form" action="index.html">
+    <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>CREATE COMPANY</h3>
+    <div class="form-group">
+      <input class="form-control" [(ngModel)]="company.name"  name="companyName" type="text" placeholder="Company Name" autofocus>
+    </div>
+    <div class="form-group btn-container">
+      <button (click)="createCompany()" class="btn btn-primary btn-block"><i class="fa fa-file-text-o"></i>Company Creation</button>
+    </div>
+  </form>
+</div>

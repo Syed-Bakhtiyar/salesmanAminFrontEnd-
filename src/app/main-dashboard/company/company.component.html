@@ -1,0 +1,117 @@
+<div class="objects-table-header">
+  <h1 class="title" translate>{{title}}</h1>
+  <andes-per-page [currentOption]="perPage" (onChange)="setPerPage($event);update()"></andes-per-page>
+  
+   <!-- <andes-per-page></andes-per-page> -->
+
+</div>
+<div class="date-select float-right">
+  <form class="form-inline" id="table-date-form ">
+    
+    <div class="input-group add-on search-form">
+      <input mdInput class="form-control search-input" placeholder="Search" name="option" (keyup)="searchTerm$.next($event.target.value)" type="text">
+      <div class="input-group-btn">
+        <button class="btn btn-default search-btn">
+          <i class="icon-search fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>
+<div class="objects-table">
+
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th>
+          <div class="checkbox">
+            <input type="checkbox" (click)="toggleSelectAll()" id="select-all-checkbox">
+            <label for="select-all-checkbox"></label>
+          </div>
+        </th>
+        <th translate>Company Name</th>
+        <th translate>Date</th>
+        <!-- <th translate>Number Of Properties</th>
+        <th translate>Landlord Address</th> -->
+        <th translate>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-template ngFor [ngForOf]="objects" let-company let-i="index">
+
+        <tr>
+
+          <td>
+            <div class="checkbox">
+              <input type="checkbox" (click)="toggleSelect(i)" [checked]="isChecked(i)" id="checkbox-{{i}}">
+              <label for="checkbox-{{i}}"></label>
+            </div>
+          </td>
+          <td>
+            {{company.name}}
+          
+          </td>
+          <td>
+              {{company.date}}
+          </td>
+          <td>
+            <button
+                    (click)="toggleRow('main', i)"
+                    [class.pressed]="rowExpanded('main', i)"
+                    class="btn btn-primary">
+              {{rowExpanded('main', i) ? 'Hide' : 'View'}}
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="expandedRowIndex == i" class="expanded">
+
+          <td></td>
+
+          <td colspan="8">
+            <div [ngSwitch]="expandedRowType" class="expanded-content">
+
+              <ng-template [ngSwitchCase]="'main'">
+
+                
+
+              </ng-template>
+
+            </div>
+          </td>
+
+        </tr>
+      </ng-template>
+    </tbody>
+
+  </table>
+
+</div>
+
+<div class="objects-table-footer">
+  <div class="global-actions">
+    <button type="button" (click)="openModalForCompanyCreation()" class="btn btn-primary btn-lg remove-border add-contract btn-custom-style" >
+      <i class="fa fa-file-text-o" aria-hidden="true"></i>
+      <span translate>Create Company</span>
+    </button>
+
+    <!-- <button type="button" (click)="openModalForComment('send')" class="btn btn-primary btn-lg remove-border add-contract btn-custom-style">
+      <i class="fa fa-envelope-o" aria-hidden="true"></i>
+      <span translate>Send Report</span>
+    </button>
+    
+    
+    <button type="button" (click)="openLandlordDialog()" class="btn btn-primary btn-lg remove-border add-contract btn-custom-style">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        <span translate>Add Landlord</span>
+      </button> -->
+      
+
+    <button class="btn btn-danger btn-lg" (click)="showConfirmationBoxForDeletion()" [disabled]="removeSelectedObjectsDisabled" translate>Remove Landlord</button>
+  </div>
+
+  <!-- <andes-pagination (onChange)="setPage($event);update()" [page]="page" [pages]="pages"></andes-pagination> -->
+</div>
+
