@@ -1,0 +1,24 @@
+<div>
+    <form class="login-form" action="index.html">
+        <h3 class="login-head">Create Manager</h3>
+        <div class="form-group">
+          <label class="control-label">First Name*</label>
+          <input class="form-control" [(ngModel)]="manager.firstName" name="firstName" type="text" placeholder="First Name" autofocus>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Last Name*</label>
+          <input class="form-control" [(ngModel)]="manager.lastName" name="lastName" type="text" placeholder="Last Name" autofocus>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Email*</label>
+          <input class="form-control" [(ngModel)]="manager.email" name="email" type="email" placeholder="Email" autofocus>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Password*</label>
+          <input class="form-control" [(ngModel)]="manager.password" name="password" type="password" placeholder="Password">
+        </div>
+        <div class="form-group btn-container">
+          <button class="btn btn-primary btn-block" (click)="createUser()"><i class="fa fa-sign-in fa-lg fa-fw"></i>Create Manager</button>
+        </div>
+      </form>
+</div>

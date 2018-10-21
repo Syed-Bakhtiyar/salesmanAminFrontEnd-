@@ -12,7 +12,8 @@ import { CompanyService } from '../../shared/services/company.service';
 export class NewCompanyComponent implements OnInit {
 
   company: CompanyInterface;
-  constructor(private localStorageService: LocalStorageService, private companyService: CompanyService) { 
+  constructor(private localStorageService: LocalStorageService,
+    private companyService: CompanyService) { 
     this.company = {
       adminId: Number(localStorageService.getUserId()),
       name: ''

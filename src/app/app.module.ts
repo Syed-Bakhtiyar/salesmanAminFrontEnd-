@@ -51,6 +51,17 @@ import { UserService } from './shared/services/user.service';
 import { LocalStorageService } from './shared/services/local.storage.service';
 import { CompanyComponent } from './main-dashboard/company/company.component';
 import { NewCompanyComponent } from './main-dashboard/new-company/new-company.component';
+import { SweetAlertModalService } from './shared/services/sweet-alert-modal.service';
+import { CompanyService } from './shared/services/company.service';
+import { AreaManagerComponent } from './main-dashboard/area-manager/area-manager/area-manager.component';
+import { NewAreaManagerComponent } from './main-dashboard/new-area-manager/new-area-manager/new-area-manager.component';
+import { ManagerComponent } from './main-dashboard/manager/manager/manager.component';
+import { NewManagerComponent } from './main-dashboard/new-manager/new-manager/new-manager.component';
+import { UserHolderComponent } from './main-dashboard/user-component/user-holder/user-holder.component';
+import { NewMerchandiserComponent } from './main-dashboard/new-merchandiser/new-merchandiser/new-merchandiser.component';
+import { MerchandiserComponent } from './main-dashboard/merchandiser/merchandiser/merchandiser.component';
+import { DataService } from './shared/services/data.service';
+
 
 @NgModule({
   declarations: [
@@ -62,7 +73,14 @@ import { NewCompanyComponent } from './main-dashboard/new-company/new-company.co
     PerPageComponent,
     EditableFieldComponent,
     CompanyComponent,
-    NewCompanyComponent
+    NewCompanyComponent,
+    AreaManagerComponent,
+    NewAreaManagerComponent,
+    ManagerComponent,
+    NewManagerComponent,
+    UserHolderComponent,
+    NewMerchandiserComponent,
+    MerchandiserComponent,
   ],
   
   imports: [
@@ -107,7 +125,10 @@ import { NewCompanyComponent } from './main-dashboard/new-company/new-company.co
   ],
   providers: [
     UserService,
-    LocalStorageService
+    LocalStorageService,
+    SweetAlertModalService,
+    CompanyService,
+    DataService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

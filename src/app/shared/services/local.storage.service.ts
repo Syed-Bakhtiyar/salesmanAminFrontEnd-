@@ -16,6 +16,6 @@ export class LocalStorageService {
   }
 
   getUserId(){
-    return localStorage.getItem('userId');
+    return localStorage.getItem('adminId');
   }
 }

@@ -24,4 +24,9 @@ export class CompanyService {
     const companyBody = `name=${companyName}`;
     return this.http.post(`${BASE_URL}admin/company/${companyId}/action`, companyBody, getRequestOptions()).toPromise();
   }
+
+  remove( companyId: number ): Promise<any> {
+    return this.http.delete( `${BASE_URL}admin/company/${companyId}/action`).toPromise();
+  }
+
 }

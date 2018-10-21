@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       let response = await this.userService.userLogin(this.user);
       response = JSON.parse(response['_body']);
       console.log(response['message']);
-      this.localStorageService.setItem('userId', response['message']);
+      this.localStorageService.setItem('adminId', response['message']);
       this.redirectUserToDashboard();
     } catch (error) {
       console.log({error});
