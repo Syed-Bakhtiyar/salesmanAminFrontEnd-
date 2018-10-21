@@ -1,3 +1,6 @@
 .btn-custom-style{
     margin-right: 10px;
 }
+.mat-tab-group{
+    background: #e4e1e1; color: black; padding: 43px;
+}

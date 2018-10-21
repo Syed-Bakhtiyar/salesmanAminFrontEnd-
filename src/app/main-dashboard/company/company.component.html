@@ -75,6 +75,23 @@
 
               <ng-template [ngSwitchCase]="'main'">
 
+                <mat-tab-group class="mat-tab-group">
+                  <mat-tab label="General Information">
+                   <div class="row" style="width: 500px">
+                    <div class="col-md-6">
+                      <form class="login-form" action="index.html">
+                        <div class="form-group">
+                          <label class="control-label">EditCompany Name</label>
+                          <input class="form-control" [value]="company.name" (change)="updateNameOfCompany(expandedCompanyName.value, company)"  name="companyName" type="text" placeholder="Company Name" autofocus #expandedCompanyName>
+                        </div>
+                      </form>
+                    </div>
+                   </div>
+                    
+                  </mat-tab>
+                 
+                </mat-tab-group>
+
                 
 
               </ng-template>

@@ -21,6 +21,10 @@ export class CompanyComponent extends ObjectsTable<CompanyInterface> {
   }
 
   async ngOnInit() {
+    await this.update();
+  }
+
+  async getCompanies(){
     try{
       let responseOfCompany = await this.companyService.getCompanies(this.localStorageService.getUserId());
       if(responseOfCompany['status'] != 200){
@@ -31,9 +35,6 @@ export class CompanyComponent extends ObjectsTable<CompanyInterface> {
         return {id: company[0], adminId: company[1], name: company[2], date: moment(company[3]).format('YYYY-MMM-DD')};
       }));
       this.objects = companies;
-      console.log(this.objects);
-
-      console.log(this.objects);
     }catch(error){
       console.log(error);
     }
@@ -50,4 +51,17 @@ export class CompanyComponent extends ObjectsTable<CompanyInterface> {
     });
   }
 
+  async update(){
+    await this.getCompanies();    
+  }
+
+  async updateNameOfCompany(value, company: CompanyInterface){
+    try{
+      console.log(value, company.id);
+      await this.companyService.updateCompany(value, company.id);
+      this.update();
+    }catch(error){
+      console.log(error);
+    }
+  }
 }

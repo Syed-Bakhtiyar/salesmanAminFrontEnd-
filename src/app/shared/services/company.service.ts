@@ -12,11 +12,16 @@ export class CompanyService {
   constructor(private http: Http) { }
 
   createCompany(company: CompanyInterface){
-    const userBody = `name=${company.name}&adminId=${company.adminId}`;
-    return this.http.post(`${BASE_URL}admin/company`, userBody, getRequestOptions()).toPromise();
+    const companyBody = `name=${company.name}&adminId=${company.adminId}`;
+    return this.http.post(`${BASE_URL}admin/company`, companyBody, getRequestOptions()).toPromise();
   }
 
   getCompanies(adminId): Promise<any>{
     return this.http.get(`${BASE_URL}admin/${adminId}/company`).toPromise();
+  }
+
+  updateCompany(companyName: string, companyId: number){
+    const companyBody = `name=${companyName}`;
+    return this.http.post(`${BASE_URL}admin/company/${companyId}/action`, companyBody, getRequestOptions()).toPromise();
   }
 }
