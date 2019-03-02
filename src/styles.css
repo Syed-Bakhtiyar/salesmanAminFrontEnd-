@@ -14880,9 +14880,7 @@ be a descendant of the grid when it is being dragged.
   font-size: 52px;
   font-weight: 400;
 }
-.signup-box{
-  min-height: 425px !important;
-}
+
 .login-content .login-box {
   position: relative;
   min-width: 350px;

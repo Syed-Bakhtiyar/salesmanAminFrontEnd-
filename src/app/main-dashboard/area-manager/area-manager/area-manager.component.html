@@ -1,0 +1,114 @@
+<div>
+    <div class="objects-table">
+
+        <table class="table">
+      
+          <thead>
+            <tr>
+              <th>
+                <div class="checkbox">
+                  <input type="checkbox" (click)="toggleSelectAll()" id="select-all-checkbox">
+                  <label for="select-all-checkbox"></label>
+                </div>
+              </th>
+              <th translate>First Name</th>
+              <th translate>Last Name</th>
+              <th translate>Email</th>
+              <!-- <th translate>Number Of Properties</th>
+              <th translate>Landlord Address</th> -->
+              <th translate>Action</th>
+            </tr>
+          </thead>
+      
+          <tbody>
+            <ng-template ngFor [ngForOf]="objects" let-manager let-i="index">
+              <tr>
+                <td>
+                  <div class="checkbox">
+                    <input type="checkbox" (click)="toggleSelect(i)" [checked]="isChecked(i)" id="checkbox-{{i}}">
+                    <label for="checkbox-{{i}}"></label>
+                  </div>
+                </td>
+                <td>
+                    {{manager.firstName}}
+                </td>
+                <td>
+                    {{manager.lastName}}
+                </td>
+                <td>
+                    {{manager.email}}
+                </td>
+                <td>
+                  <button
+                          (click)="toggleRow('main', i)"
+                          [class.pressed]="rowExpanded('main', i)"
+                          class="btn btn-primary">
+                    {{rowExpanded('main', i) ? 'Hide' : 'View'}}
+                  </button>
+                </td>
+              </tr>
+              <tr *ngIf="expandedRowIndex == i" class="expanded">
+      
+                <td></td>
+      
+                <td colspan="8">
+                  <div [ngSwitch]="expandedRowType" class="expanded-content">
+      
+                    <ng-template [ngSwitchCase]="'main'">
+      
+                      <!-- <mat-tab-group class="mat-tab-group">
+                        <mat-tab label="General Information">
+                         <div class="row" style="width: 500px">
+                          <div class="col-md-6">
+                            <form class="login-form" action="index.html">
+                              <div class="form-group">
+                                <label class="control-label">EditCompany Name</label>
+                                <input class="form-control" [value]="company.name" (change)="updateNameOfCompany(expandedCompanyName.value, company)"  name="companyName" type="text" placeholder="Company Name" autofocus #expandedCompanyName>
+                              </div>
+                            </form>
+                          </div>
+                         </div>
+                          
+                        </mat-tab>
+                       
+                      </mat-tab-group> -->
+      
+                      
+      
+                    </ng-template>
+      
+                  </div>
+                </td>
+      
+              </tr>
+            </ng-template>
+          </tbody>
+      
+        </table>
+      
+      </div>
+
+      <div class="objects-table-footer">
+        <div class="global-actions">
+          <button type="button" (click)="openModalForAreaManagerCreation()" class="btn btn-primary btn-lg remove-border add-contract btn-custom-style" >
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+            <span translate>Create Area Manager</span>
+          </button>
+      
+          <!-- <button type="button" (click)="openModalForComment('send')" class="btn btn-primary btn-lg remove-border add-contract btn-custom-style">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span translate>Send Report</span>
+          </button>
+          
+          
+          <button type="button" (click)="openLandlordDialog()" class="btn btn-primary btn-lg remove-border add-contract btn-custom-style">
+              <i class="fa fa-user-plus" aria-hidden="true"></i>
+              <span translate>Add Landlord</span>
+            </button> -->
+            
+      
+          <button class="btn btn-danger btn-lg" (click)="showConfirmationBoxForDeletion()" [disabled]="removeSelectedObjectsDisabled" translate>Remove Manager</button>
+        </div>
+      
+      
+</div>

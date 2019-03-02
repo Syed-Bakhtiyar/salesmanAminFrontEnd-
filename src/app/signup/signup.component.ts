@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../shared/interfaces/user.interface';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,12 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { 
-    console.log('signup');
+  user: User;
+  constructor(private userService: UserService) { 
+    this.user = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: ''
+    }
   }
 
   ngOnInit() {
-    console.log('signup');
   }
 
+  async createUser(){
+    const response = await this.userService.createUser(this.user);
+    console.log(response);
+  }
 }

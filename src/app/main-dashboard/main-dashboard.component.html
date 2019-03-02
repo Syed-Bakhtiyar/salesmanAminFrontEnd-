@@ -1,4 +1,4 @@
-<header class="app-header"><a class="app-header__logo" href="index.html">Vali</a>
+<header class="app-header"><a class="app-header__logo" href="index.html">Sales Man</a>
   <!-- Sidebar toggle button--><a (click)="sideNavigation()" class="app-sidebar__toggle" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
   <!-- Navbar Right Menu-->
   <ul class="app-nav">
@@ -59,23 +59,23 @@
 </header>
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" style="width: 53px; height: 61px;" src="../../assets/profile.jpg" alt="User Image">
         <div>
-          <p class="app-sidebar__user-name">John Doe</p>
-          <p class="app-sidebar__user-designation">Frontend Developer</p>
+          <p class="app-sidebar__user-name">Syed Bakhtiyar</p>
+          <p class="app-sidebar__user-designation">Fullstack Developer</p>
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item active" href="index.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">UI Elements</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li><a class="app-menu__item active" [routerLink]="['/dashboard']"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Company</span></a></li>
+        <!-- <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">UI Elements</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Bootstrap Elements</a></li>
             <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Font Icons</a></li>
             <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
             <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
           </ul>
-        </li>
-        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li>
+        </li> -->
+        <li><a class="app-menu__item" [routerLink]="['/dashboard/user']"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Forms</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i> Form Components</a></li>
@@ -108,14 +108,14 @@
       <div class="app-title">
         <div>
           <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
-          <p>A free and open source Bootstrap 4 admin template</p>
+          <p>Designer Bakhtiyar</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
-          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+          <li ><i class="fa fa-home fa-lg"></i></li>
+          <!-- <li class="breadcrumb-item"><a href="#">Dashboard</a></li> -->
         </ul>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
             <div class="info">
@@ -195,6 +195,11 @@
             <p>The source code is available on GitHub. If anything is missing or weird please report it as an issue on <a href="https://github.com/pratikborsadiya/vali-admin" target="_blank">GitHub</a>. If you want to contribute to this theme pull requests are always welcome.</p>
           </div>
         </div>
-      </div>
+      </div> -->
+      <div id="page-wrapper">
+        <router-outlet>
+        
+        </router-outlet>  
+      </div>        
     </main>
     
