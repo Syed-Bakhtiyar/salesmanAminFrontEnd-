@@ -1,3 +1,4 @@
+import { EditableFieldComponent } from './editable-field/editable-field.component';
 
 export class ObjectsTable<ObjectInterface> {
     objects: ObjectInterface[] = [];
@@ -37,7 +38,7 @@ export class ObjectsTable<ObjectInterface> {
         this.update();
     }
 
-    updateField( name: string, value: any, object: ObjectInterface, input: any = null, update: boolean = false ) {
+    updateField( name: string, value: any, object: ObjectInterface, input: EditableFieldComponent = null, update: boolean = false ) {
     }
 
     removeObject( index: number ) {

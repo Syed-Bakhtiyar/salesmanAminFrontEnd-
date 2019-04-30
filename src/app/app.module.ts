@@ -5,7 +5,7 @@ import { Http, HttpModule } from '@angular/http';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
-import { 
+import {
   MatDialogModule,
   MatTabsModule,
   MatAutocompleteModule,
