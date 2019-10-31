@@ -30,7 +30,11 @@
                   </div>
                 </td>
                 <td>
-                    {{manager.firstName}}
+                  <app-editable-field 
+                    [value]="manager.firstName" 
+                    (change)="onChangeInput($event, manager, 'firstName')"
+                    ></app-editable-field>
+                    <!-- {{manager.firstName}} -->
                 </td>
                 <td>
                     {{manager.lastName}}

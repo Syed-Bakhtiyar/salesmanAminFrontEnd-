@@ -25,29 +25,34 @@ export class AreaManagerComponent extends ObjectsTable<User> {
     await this.update();
   }
 
-  async update(){
+  onChangeInput(event, object, property) {
+    console.log(this.objects);
+    // console.log({event});
+    object[property] = event.target.value;
+  }
+
+  async update() {
     await this.getAreaManagers();
   }
 
-  async getAreaManagers(){
-    try{
-      let responseOfAreaManager = await this.userService.getAreaManagers(this.localStorageService.getUserId());
-      if(responseOfAreaManager['status'] != 200){
+  async getAreaManagers() {
+    try {
+      const responseOfAreaManager = await this.userService.getAreaManagers(this.localStorageService.getUserId());
+      if (responseOfAreaManager['status'] !== 200) {
         throw responseOfAreaManager;
       }
       let areaManagers = JSON.parse(responseOfAreaManager['_body'])['message'];
       console.log(areaManagers);
-      areaManagers = await Promise.all(areaManagers.map(async (areaManager): Promise<User>=>{
+      areaManagers = await Promise.all(areaManagers.map(async (areaManager): Promise<User> => {
         return {id: areaManager[0], firstName: areaManager[4], lastName: areaManager[5], email: areaManager[6]};
       }));
       this.objects = areaManagers;
-      console.log('');
-    }catch(error){
+    } catch (error) {
       console.log(error);
     }
   }
 
-  openModalForAreaManagerCreation(){
+  openModalForAreaManagerCreation() {
     this.dataService.setRole(roles.AREA_MANAGER);
     this.router.navigate(['/dashboard/user/new-manager']);
   }

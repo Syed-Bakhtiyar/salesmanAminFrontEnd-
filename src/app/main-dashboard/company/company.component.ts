@@ -30,18 +30,18 @@ export class CompanyComponent extends ObjectsTable<CompanyInterface> {
     await this.update();
   }
 
-  async getCompanies(){
-    try{
-      let responseOfCompany = await this.companyService.getCompanies(this.localStorageService.getUserId());
-      if(responseOfCompany['status'] != 200){
+  async getCompanies() {
+    try {
+      const responseOfCompany = await this.companyService.getCompanies(this.localStorageService.getUserId());
+      if(responseOfCompany['status'] !== 200){
         throw responseOfCompany;
       }
       let companies = JSON.parse(responseOfCompany['_body'])['message'];
-      companies = await Promise.all(companies.map(async (company): Promise<CompanyInterface>=>{
+      companies = await Promise.all(companies.map(async (company): Promise<CompanyInterface> => {
         return {id: company[0], adminId: company[1], name: company[2], date: moment(company[3]).format('YYYY-MMM-DD')};
       }));
       this.objects = companies;
-    }catch(error){
+    } catch (error) {
       console.log(error);
     }
   }
@@ -57,8 +57,8 @@ export class CompanyComponent extends ObjectsTable<CompanyInterface> {
     });
   }
 
-  async update(){
-    await this.getCompanies();    
+  async update() {
+    await this.getCompanies();
   }
 
   async showConfirmationBoxForDeletion() {
@@ -101,20 +101,21 @@ export class CompanyComponent extends ObjectsTable<CompanyInterface> {
         this.sweetAlert.showDialog('Company', `Company can't be deleted because this Company has active entities`, 'error');
       }
     } catch (e) {
-      this.sweetAlert.showDialog('Company', 'Company is not Deleted'+ e, 'error');
+      this.sweetAlert.showDialog('Company', 'Company is not Deleted' + e, 'error');
     } finally {
-      this.update();
+      await this.update();
       this.removeSelectedObjectsDisabled = false;
     }
+    this.updateIndexAccordingly();
   }
 
 
   async updateNameOfCompany(value, company: CompanyInterface){
-    try{
+    try {
       console.log(value, company.id);
       await this.companyService.updateCompany(value, company.id);
       this.update();
-    }catch(error){
+    } catch (error) {
       console.log(error);
     }
   }

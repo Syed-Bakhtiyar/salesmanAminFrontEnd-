@@ -87,4 +87,12 @@ export class ObjectsTable<ObjectInterface> {
             this.expandedRowType = type;
         }
     }
+
+    updateIndexAccordingly() {
+        const indexes = [];
+        for (let i = 0; i < this.objects.length; i++) {
+            indexes.push(i);
+        }
+        this.selectedIndexes = indexes;
+    }
 }

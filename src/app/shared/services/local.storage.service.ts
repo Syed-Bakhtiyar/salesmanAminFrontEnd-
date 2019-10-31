@@ -7,15 +7,15 @@ export class LocalStorageService {
 
   constructor() { }
 
-  setItem(key, value){
-    localStorage.setItem(key, value)
+  setItem(key, value) {
+    localStorage.setItem(key, value);
   }
 
-  getItem(key){
-    return localStorage.getItem(key)
+  getItem(key) {
+    return localStorage.getItem(key);
   }
 
-  getUserId(){
+  getUserId() {
     return localStorage.getItem('adminId');
   }
 }

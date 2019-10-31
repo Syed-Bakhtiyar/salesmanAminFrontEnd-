@@ -10,7 +10,7 @@
 
     <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
 
-      <li role="menuitem" *ngFor="let option of options" (click)="change(option)">
+      <li role="menuitem" *ngFor="let option of options" (click)="onChange(option)">
         <a class="dropdown-item">{{option}}</a>
       </li>
 

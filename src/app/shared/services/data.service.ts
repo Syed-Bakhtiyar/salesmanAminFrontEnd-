@@ -8,11 +8,11 @@ export class DataService {
   role: string;
   constructor() { }
 
-  setRole(role){
+  setRole(role) {
     this.role = role;
   }
 
-  getRole(){
+  getRole() {
     return this.role;
   }
 }

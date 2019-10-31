@@ -5,14 +5,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './per-page.component.html',
   styleUrls: ['./per-page.component.css']
 })
-export class PerPageComponent{
+export class PerPageComponent {
   _options: number[] = [5, 10, 15, 20, 25];
 
   @Input()
   currentOption = 25;
 
-  @Output()
-  onChange: EventEmitter<number> = new EventEmitter();
+  @Output() change: EventEmitter<number> = new EventEmitter();
 
   constructor() {
   }
@@ -25,8 +24,8 @@ export class PerPageComponent{
       return arr;
   }
 
-  change( option: number ) {
+  onChange( option: number ) {
       this.currentOption = option;
-      this.onChange.emit( option );
+      this.change.emit( option );
   }
 }

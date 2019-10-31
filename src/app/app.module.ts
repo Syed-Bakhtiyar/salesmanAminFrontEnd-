@@ -82,7 +82,7 @@ import { DataService } from './shared/services/data.service';
     NewMerchandiserComponent,
     MerchandiserComponent,
   ],
-  
+
   imports: [
     BrowserModule,
     FormsModule,
